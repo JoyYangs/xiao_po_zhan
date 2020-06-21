@@ -2,7 +2,8 @@
   <div class="home">
     <home-header></home-header>
     <navigation-bar class="nav-bar" :titles="titles"></navigation-bar>
-    <home-content class="content"></home-content>
+    <home-content class="content">
+    </home-content>
   </div>
 </template>
 
@@ -45,4 +46,6 @@ export default {
   margin: 0 60px;
   height: 1000px;
 }
+
+
 </style>

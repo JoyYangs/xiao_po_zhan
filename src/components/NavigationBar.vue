@@ -1,7 +1,9 @@
 <template>
 	<div id="nav-bar">
 		<div class="top-titles left">
-			<a href="https://app.bilibili.com/" class="title-item" target="_blank" v-for="title of titles.left" :key="title">
+			<a href="https://app.bilibili.com/" class="title-item" target="_blank" 
+					v-for="title of titles.left" :key="title"
+					>
 				<span>{{title}}</span>
 			</a>
 		</div>
@@ -13,6 +15,11 @@
 			<div class="title-item" v-for="title of titles.right" :key="title">{{title}}</div>
 			<div class="tougao">投稿</div>
 		</div>
+
+		<div v-if="isHover" class="hover">
+      <div class="arrow"></div>
+      <div class="testhover"></div>
+    </div>
 		
 	</div>
 </template>
@@ -24,6 +31,17 @@ export default {
 		titles: {
 			type: Object,
 			default: {}
+		}
+	},
+	data() {
+		return {
+			isHover: false
+		}
+	},
+	methods: {
+		changeHoverState(event) {
+			console.log(event)
+			this.isHover = true;
 		}
 	}
 }
@@ -73,4 +91,30 @@ export default {
 	border-radius: 4px;
 }
 
+
+.hover {
+  width: 100px;
+  height: 200px;
+  position: relative;
+}
+
+.arrow {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  left: calc(50% - 5px);
+  top: -5px;
+  transform: rotate(45deg);
+  border-top: 1px solid red;
+  border-left: 1px solid red;
+}
+
+.testhover {
+  background-color: aliceblue;
+  width: 100%;
+  height: 100%;
+  margin: 5px;
+  color: rebeccapurple;
+  z-index: 2;
+}
 </style>
